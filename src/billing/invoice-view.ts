@@ -15,7 +15,7 @@ export function renderInvoiceStatus(invoice: InvoiceView): string {
     return 'Void';
   }
   if (invoice.status === 'open') {
-    return 'Payment due';
+    return 'Awaiting payment';
   }
   return 'Draft';
 }
