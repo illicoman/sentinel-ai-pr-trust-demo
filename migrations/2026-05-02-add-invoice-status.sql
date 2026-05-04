@@ -1,0 +1,2 @@
+ALTER TABLE invoices
+  ADD COLUMN status VARCHAR(32) NOT NULL DEFAULT 'open';

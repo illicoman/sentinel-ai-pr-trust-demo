@@ -1,0 +1,55 @@
+format_note: >-
+  Public pedagogical demo format. This file is readable on purpose and is not
+  the canonical ADP runtime policy format. In a real Sentinel pilot, ADP remains
+  the source of truth for launch records, readiness evidence and protected
+  surface profiles.
+
+protected_surfaces:
+  - id: production-deployment
+    label: Production deployment
+    client_label: Mise en production
+    category: cicd
+    sensitivity: critical
+    globs:
+      - .github/workflows/deploy.yml
+      - deploy/**
+    review_referent: release-owner
+    expected_evidence:
+      - launch_authority_captured
+      - surface_profile_valid
+
+  - id: authorization-rules
+    label: Authorization rules
+    client_label: Regles d'autorisation
+    category: auth
+    sensitivity: high
+    globs:
+      - src/auth/**
+    review_referent: security-owner
+    expected_evidence:
+      - review_referent_assigned
+
+  - id: billing-runtime-dependency
+    label: Billing runtime dependencies
+    client_label: Dependances runtime facturation
+    category: dependency
+    sensitivity: high
+    globs:
+      - package.json
+      - package-lock.json
+      - pnpm-lock.yaml
+    review_referent: backend-owner
+    expected_evidence:
+      - evidence_sharing_captured
+
+  - id: database-migrations
+    label: Database migrations
+    client_label: Migrations base de donnees
+    category: database
+    sensitivity: high
+    globs:
+      - migrations/**
+    review_referent: data-owner
+    expected_evidence:
+      - j0_scheduled
+      - launch_authority_captured

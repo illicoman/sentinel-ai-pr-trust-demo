@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/deploy.yml b/.github/workflows/deploy.yml
+index 1111111..2222222 100644
+--- a/.github/workflows/deploy.yml
++++ b/.github/workflows/deploy.yml
+@@ -13,6 +13,8 @@ jobs:
+     steps:
+       - uses: actions/checkout@v4
+       - name: Build demo app
+         run: npm ci && npm run build
++      - name: Run smoke tests
++        run: npm test
+       - name: Deploy
+         run: echo "Deploying demo app to production"

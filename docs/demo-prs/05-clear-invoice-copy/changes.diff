@@ -1,0 +1,8 @@
+diff --git a/src/billing/invoice-view.ts b/src/billing/invoice-view.ts
+index 1111111..2222222 100644
+--- a/src/billing/invoice-view.ts
++++ b/src/billing/invoice-view.ts
+@@ -7,2 +7,2 @@
+   if (invoice.status === 'paid') {
+-    return 'Paid';
++    return 'Payment received';
