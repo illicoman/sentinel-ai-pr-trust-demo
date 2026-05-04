@@ -4,17 +4,18 @@
 Decision: missing_evidence
 
 This PR touches a protected surface:
-- Billing runtime dependencies (`package.json`, `package-lock.json`)
+- Billing runtime dependencies (`package.json`)
+- Billing runtime dependencies (`package-lock.json`)
 
 Evidence:
-- Evidence sharing: missing
 - Surface profile: present
+- Evidence sharing: missing
 
 Required review:
-- backend-owner
+- Billing runtime dependencies: backend-owner
 
 Next action:
-Validate why the new runtime dependency is needed before merge.
+Ask backend-owner to validate why this runtime dependency is needed before merge.
 
 Boundary:
 Advisory only. Sentinel did not block this PR.

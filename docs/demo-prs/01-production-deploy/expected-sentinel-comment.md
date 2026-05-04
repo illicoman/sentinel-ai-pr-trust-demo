@@ -11,7 +11,7 @@ Evidence:
 - Launch authority: missing
 
 Required review:
-- release-owner
+- Production deployment: release-owner
 
 Next action:
 Request release-owner validation before merge.

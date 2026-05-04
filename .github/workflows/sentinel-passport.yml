@@ -13,7 +13,7 @@ jobs:
   sentinel-passport:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - id: sentinel
         uses: illicoman/sentinel-github-pr-passport-action@v1
@@ -27,9 +27,9 @@ jobs:
           requested_task: ${{ github.event.pull_request.title }}
           fail_on: never
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: sentinel-change-passport
           path: ${{ steps.sentinel.outputs.passport_path }}
 
-# The public action must be published and tagged as v1 before opening demo PRs.
+# The public action tag v1 must point to the Node.js 24 action release.

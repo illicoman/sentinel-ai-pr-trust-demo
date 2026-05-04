@@ -7,17 +7,17 @@ This PR touches a protected surface:
 - Authorization rules (`src/auth/permissions.ts`)
 
 Evidence:
-- Review referent: present
 - Surface profile: present
+- Review referent: present
 
 Required review:
-- security-owner
+- Authorization rules: security-owner
 
 Next action:
-Confirm why an invoice UI fix changed authorization rules before merge.
+Confirm why the requested task touches authorization rules before merge, then request review from security-owner.
 
 Scope:
-Possible scope drift. The requested task was invoice display copy, but the PR touched authorization logic.
+Possible scope drift. Requested task: Fix invoice display copy.
 
 Boundary:
 Advisory only. Sentinel did not block this PR.

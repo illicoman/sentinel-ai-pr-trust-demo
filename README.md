@@ -19,7 +19,7 @@ Evidence:
 - Launch authority: missing
 
 Required review:
-- release-owner
+- Production deployment: release-owner
 
 Next action:
 Request release-owner validation before merge.
@@ -86,7 +86,8 @@ This makes Sentinel advisory. It publishes a comment and does not block the PR.
 2. Configure:
    - `SENTINEL_ADP_BASE_URL` as a repository variable;
    - `SENTINEL_LAUNCH_RECORD_ID` as a repository variable;
-   - `SENTINEL_ADP_TOKEN` as a repository secret.
+   - `SENTINEL_ADP_TOKEN` as a repository secret;
+   - `SENTINEL_GITHUB_COMMENT_TOKEN` as a repository secret if the default GitHub token cannot write PR comments.
 3. Create one branch per scenario from `docs/demo-prs/`.
 4. Apply the scenario diff.
 5. Open a PR and wait for the Sentinel Change Passport comment.
@@ -120,3 +121,18 @@ The five scenarios are:
 - The demo does not create a GitHub App.
 - The demo does not claim a PR is safe.
 - The demo does not prove compliance, AppSec coverage or medical safety.
+
+## Where This Goes Next
+
+The current demo is the observe/advisory version of Sentinel.
+
+The product direction is a Required Passport path:
+
+1. keep the GitHub Action as the easiest public demo;
+2. add a private GitHub App for pilots;
+3. publish a Sentinel Check Run in warn mode;
+4. read a simple repo config such as `.sentinel/surfaces.yml`;
+5. support local `sentinel pr preview` before CI;
+6. let teams make `Sentinel Change Passport` a required GitHub Ruleset check on selected critical surfaces.
+
+Required mode is not enabled in this demo. It should come after clean screenshots, low-noise surfaces, reviewer feedback and an audited bypass path.

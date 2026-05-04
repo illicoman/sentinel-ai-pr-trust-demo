@@ -7,14 +7,15 @@ This PR touches a protected surface:
 - Database migrations (`migrations/2026-05-02-add-invoice-status.sql`)
 
 Evidence:
-- J0 scheduled: missing
+- Surface profile: present
 - Launch authority: missing
+- J0 scheduled: missing
 
 Required review:
-- data-owner
+- Database migrations: data-owner
 
 Next action:
-Request data-owner review and a rollback plan before merge.
+Request data-owner review and a rollback plan before merge. Sentinel matched the migration surface; it does not inspect SQL contents in this preview.
 
 Boundary:
 Advisory only. Sentinel did not block this PR.

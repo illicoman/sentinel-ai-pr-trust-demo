@@ -25,6 +25,7 @@ Confirm the workflow secrets and variables are configured before opening PRs:
 - `SENTINEL_ADP_BASE_URL`
 - `SENTINEL_LAUNCH_RECORD_ID`
 - `SENTINEL_ADP_TOKEN`
+- `SENTINEL_GITHUB_COMMENT_TOKEN` if the default GitHub token cannot write PR comments
 
 Confirm the public action has been pushed and tagged as `v1`, then confirm the workflow uses:
 

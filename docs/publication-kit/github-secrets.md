@@ -1,6 +1,6 @@
 # GitHub Secrets And Variables
 
-The demo workflow needs one secret and two variables.
+The demo workflow needs two secrets and two variables.
 
 ## Repository Variables
 
@@ -15,6 +15,18 @@ https://adp.example.invalid
 ```
 
 Do not use a real value in public documentation or committed files.
+
+For the FrenchLink public demo proxy, use:
+
+```txt
+https://frenchlink.fr/agent-decision-plane-testeurs
+```
+
+The Action appends `/admin/change-passports/preview`, so this resolves to the bounded public proxy:
+
+```txt
+https://frenchlink.fr/agent-decision-plane-testeurs/admin/change-passports/preview
+```
 
 ### `SENTINEL_LAUNCH_RECORD_ID`
 
@@ -38,6 +50,27 @@ Rules:
 - Scope it to advisory Change Passport preview only.
 - Rotate it after public demos if it was shared with a temporary environment.
 
+### `SENTINEL_GITHUB_COMMENT_TOKEN`
+
+Fine-grained GitHub token used only to read PR files metadata and publish the Sentinel PR comment.
+
+Use this when the default `github.token` fails with:
+
+```txt
+Resource not accessible by integration
+```
+
+Recommended scope:
+
+- resource owner: the repository owner;
+- repository access: only this demo repository;
+- repository permissions:
+  - `Issues`: read and write;
+  - `Pull requests`: read and write;
+  - `Contents`: read-only.
+
+The workflow falls back to `github.token` when this secret is not configured.
+
 ## What The Action Sends To ADP
 
 The Action sends:
@@ -53,6 +86,8 @@ The Action does not send:
 - GitHub secrets;
 - customer data;
 - tokens other than the ADP bearer token in the authorization header.
+
+The Action also uses a GitHub token locally inside the workflow to read PR file metadata and write the PR comment. That token is not sent to ADP.
 
 ## Recommended Pilot Mode
 

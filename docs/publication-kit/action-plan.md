@@ -139,6 +139,35 @@ Track feedback in a simple table:
 
 This feedback decides whether to prioritize onboarding, history, scope drift or GitHub App work.
 
+## Required Passport Trajectory
+
+The public demo proves the first step: Sentinel can explain sensitive AI PRs in GitHub without reading file contents and without blocking the PR.
+
+The product trajectory is:
+
+1. publish the action and demo;
+2. refresh the five PR comments after the surface metadata fix;
+3. capture 3 clean screenshots:
+   - production deploy with `release-owner`;
+   - auth scope drift with `security-owner`;
+   - clear invoice copy with no protected-surface review;
+4. publish a focused landing page around:
+
+> Know when AI pull requests touch sensitive files.
+
+5. build a private GitHub App in advisory mode;
+6. add a Sentinel Check Run;
+7. read a simple repo config such as `.sentinel/surfaces.yml`;
+8. add `scope_drift` and local `sentinel pr preview`;
+9. test GitHub Rulesets with a required Sentinel check on one stable surface;
+10. add audited emergency bypass before expanding required mode.
+
+The required-passport target is documented in:
+
+- `docs/product/sentinel-github-required-passport.md`
+
+Do not pitch required checks as implemented yet. Current public proof is an advisory GitHub Action comment. The next implementation step is a private GitHub App skeleton, after screenshots and landing page are ready.
+
 ## Next Product Lots
 
 These lots are ordered to move from public proof to paid pilots, then to a private GitHub App.
@@ -363,12 +392,12 @@ Keep these after the first paid pilots unless a customer explicitly pulls them f
 
 ## Current Recommendation
 
-Do not start the GitHub App before the public demo has real PR links and screenshots.
+Do not start required checks before the public demo has real PR links, refreshed surface-specific comments and screenshots.
 
 Best next move:
 
-1. publish the public demo;
-2. open the five PRs;
+1. deploy the ADP surface metadata fix;
+2. rerun the five public PR workflows;
 3. capture proof;
-4. run a small outreach batch;
-5. choose the next lot using real feedback.
+4. publish the landing page;
+5. choose between `github-app-skeleton-v1` and deeper Action onboarding using real feedback.
