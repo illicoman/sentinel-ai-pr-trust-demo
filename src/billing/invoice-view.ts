@@ -9,7 +9,7 @@ export interface InvoiceView {
 
 export function renderInvoiceStatus(invoice: InvoiceView): string {
   if (invoice.status === 'paid') {
-    return 'Paid';
+    return 'Payment received';
   }
   if (invoice.status === 'void') {
     return 'Void';
